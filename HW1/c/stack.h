@@ -1,13 +1,17 @@
 #ifndef __STACK_H__
 #define __STACK_H__
 
-#define STACK_SIZE 200
+#define STACK_SIZE 100
 
-struct stack {			
-	int sp;
-	int stk[STACK_SIZE];
+typedef struct node {			
+	int data;
+	struct node *next;
+}NODE,*NODEPTR;
+
+struct stack
+{
+	NODEPTR topptr;
 };
-
 extern void push(struct stack* this,int input);  
 extern int pop(struct stack* this);
 extern struct stack* new_stack();
