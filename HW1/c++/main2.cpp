@@ -15,7 +15,7 @@ int main()
   	{
     	stk1.push( 200 + i );
     	stk2.push( 700 + i );
- 	 }
+ 	}
 
   	cout << "Dump of stack 1:" << endl;
   	for ( int i = 0; i < NUM_ITEMS; i++ )
