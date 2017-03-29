@@ -1,13 +1,15 @@
 all:main main2
-cc=gcc 
-CFLAGS=-g -Wall -ansi
-main_obj=stack.o main.o
-main2_obj=stack.o main2.o
-main:$(main_obj)
-		$(cc)-o$@ $(main_obj)
-main2:$(main2_obj)
-		$(cc)-o$@ $(main2_obj)
-%.c:%.o
-		$(cc)$(CFLAGS)-c-o$@ $<
+main:main.o stack.o
+	gcc -ggdb -o main main.o stack.o
+main2:main2.o stack.o
+	gcc -ggdb -o main2 main2.o stack.o
+stack.o:
+	gcc -ggdb -c stack.c
+main.o:
+	gcc -ggdb -c main.c
+main2.o:
+	gcc -ggdb -c main2.c
+dep:
+	gcc -ggdb -M main.c main2.c stack.c > depend
 clean:
-		rm *.o main main2
+		rm *.o main main2 depend

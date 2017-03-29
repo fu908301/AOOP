@@ -16,8 +16,8 @@ main2.o: main2.cpp
 	g++ -ggdb -c main2.cpp
 
 dep:
-	echo "Do nothing"
+	g++ -ggdb -M main.cpp main2.cpp stack.cpp > depend
 
 clean:
-	rm -f main main2 *.o
+	rm -f main main2 *.o depend
 
